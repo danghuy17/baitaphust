@@ -1,15 +1,23 @@
 #include<iostream>
-
-double sumS(long long n) {
-    if(n == 0) 
-        return 1;
-    return sumS(n - 1) + 1 / (2.0 * n);
-}
+#include<iomanip>
 
 int main() {
-    long long n;
-    std::cout << "Nhap gia tri n: ";
-    std::cin >> n;
-    std::cout << sumS(n);
+    int n, m;
+    long matrix[100][100], x = 1;
+    std::cout << "Nhap m, n cua ma tran M x N: ";
+    std::cin >> m >> n;
+    for(int i = 0; i < m; ++i) {
+        for(int j = 0; j < n; ++j) {
+            matrix[i][j] = x;
+            ++x;
+        }
+    }
+    std::cout << std::setfill('0');
+    for(int i = 0; i < m; ++i) {
+        for(int j = 0; j < n; ++j) {
+            std::cout << std::setw(2) << matrix[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
     return 0;
 }

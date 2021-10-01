@@ -1,15 +1,13 @@
 #include<iostream>
-
-long long giaiThua(long long x) {
-    if (x <= 1)
-        return 1;
-    return giaiThua(x - 1) * x;
-}
-
+#include<iomanip>
 int main() {
-    long long k, n;
-    std::cout << "Nhap n va k: ";
-    std::cin >> n >> k;
-    std::cout << 1.0 * (giaiThua(n)) / (giaiThua(k) * giaiThua(n - k));
+    std::cout << "Bang chu cai in hoa" << std::endl;
+    for(int i = 'A'; i <= 'Z'; ++i) {
+        std::cout << char(i) << " " << std::setfill('0') << std::setw(3) << i << std::endl;
+    }
+    std::cout << "Bang chu cai in thuong" << std::endl;
+    for(int i = 'a'; i <= 'z'; ++i) {
+        std::cout << char(i) << " " << std::setfill('0') << std::setw(3) << i << std::endl;
+    }
     return 0;
 }
