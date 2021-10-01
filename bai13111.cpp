@@ -15,7 +15,7 @@ double mySqrt(int number) {
 }
 
 int main() {
-    int number;
+    unsigned int number;
     std::cout << "Nhap number: ";
     std::cin >> number;
     std::cout << std::fixed << std::setprecision(8) << "Can bac 2 cua " << number << " la: " << mySqrt(number);
