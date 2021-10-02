@@ -1,25 +1,19 @@
 #include<iostream>
-#include<cmath>
+#include<string>
 
-int Binary(char binary[], int n, int count) {
-    if(n - pow(2, count) >= 0) {
-        n -= pow(2, count);
-        binary[count] = '1';
+void Binary(int binary[], int n) {
+    for (int i = 0; i < 8; ++i) {
+        binary[i] = ((n >> i) & 1);
     }
-    if(count == 0)
-        return 0;
-    return Binary(binary, n, count - 1);
 }
 
 int main() {
-    char binary[8];
-    int n, count = 7;
+    int binary[8];
+    // int n = 10;
+    int n;
     std::cout << "Nhap n: ";
     std::cin >> n;
-    for(int i = 0; i < 8; ++i) {
-        binary[i] = '0';
-    }
-    Binary(binary, n, count);
+    Binary(binary, n);
     for(int i = 7; i >= 0; --i) {
         std::cout << binary[i];
     }
