@@ -13,7 +13,7 @@ int main() {
             even_number[even] = n;
             ++even;
         }
-        if(n % 8 ==0) {
+        if(!(n & 7)) {
             chia8[chia] = n;
             ++chia;
         }
