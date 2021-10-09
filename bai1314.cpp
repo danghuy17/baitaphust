@@ -1,45 +1,38 @@
 #include<iostream>
 
-bool checkEven(long edge[]) {
-    if(edge[0] == edge[1] && edge[0] == edge[2])
-        return 1;
-    return 0;
-}
 
-bool checkIsosceles(long edge[]) {
-    if(edge[0] == edge[1] || edge[0] == edge[2] || edge[1] == edge[2])
-        return 1;
-    return 0;
-}
-bool checkSquace(long edge[]) {
-    if(edge[0] == (edge[1] + edge[2]))
-        return 1;
-    else if(edge[1] == (edge[0] + edge[2]))
-        return 1;
-    else if(edge[2] == (edge[1] + edge[0]))
-        return 1;
-    return 0;
-
-}
 int main() {
-    long edge[3];
-    bool check = true;
-    std::cout << "Nhap lan luot 3 binh phuong canh tam giac: ";
-    std::cin >> edge[0] >> edge[1] >> edge[2];
-    std::cout << "Tam giac vua nhap: ";
-    if(checkIsosceles(edge)) {
-        if(checkEven(edge))
-            std::cout << "tam giac deu ";
-        else 
-            std::cout << "tam giac can ";
-        check = false;
+    int a, b, c;
+    int vuong; 
+    int can;
+    int flag;
+
+    std::cout << "Nhap 3 canh tam giac: ";
+
+    std::cin >> a >> b >> c;
+
+    vuong = (a == b + c) * 4 + (b == c + a) * 2 + (c == b + a);
+    can = (b == c) * 4 +  (a == c) * 2 + (a == b);
+    flag = vuong | can;
+
+    std::cout << "Tam giac";
+
+    switch(vuong + can) {
+        case 0: std::cout << " thuong";
+        case 7: std::cout << " deu";
+        default:{
+            if (vuong) {
+                std::cout << " vuong";
+            }
+
+            if (can) {
+                std::cout << " can";
+            }
+
+            std::cout << " tai " << char(67 - flag / 2); 
+        }
     }
-    if(checkSquace(edge)) {
-        std::cout << "tam giac vuong";
-        check = false;
-    }
-    if(check == true) {
-        std::cout << "tam giac thuong";
-    }
+
+
     return 0;
 }
