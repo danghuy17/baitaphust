@@ -1,5 +1,4 @@
 #include<iostream>
-#include<string>
 
 void Binary(int binary[], int n) {
     for (int i = 0; i < 8; ++i) {
