@@ -25,9 +25,3 @@ void bai11() {
 
     std::cout << "Ten da chuan Hoa: " << chuanHoa(fullName) << std:: endl;
 }
-
-int main() {
-    bai11();
-
-    return 0;
-}
