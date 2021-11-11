@@ -1,50 +1,40 @@
 #include<iostream>
 
 
-int viTri(std::string s, char c) {
-    for (int i = 0; s[i] != '\0'; ++i) {
-        if (s[i] == c) {
-            return i;
-        }
-    }
+void frequenceOfStr(const char* s, int* frequenceChar, char* charector, int* n) {
+	*charector = *s;
+	*frequenceChar = 0;
+	++* n;
+	for (int i = 0; *(s + i) != '\0'; ++i) {
+		for (int j = 0; j < *n; ++j) {
+			if (*(charector + j) == *(s + i)) {
+				++* (frequenceChar + j);
+				break;
+			}
+			if (j == *n - 1) {
+				*(frequenceChar + *n) = 0;
+				*(charector + (*n)++) = *(s + i);
+			}
+		}
+	}
 }
 
-bool checkInChar(char c, std::string s) {
-    for (int i = 0; s[i] != '\0'; ++i) {
-        if (s[i] == c) {
-            return false;
-        }
-    }
-
-    return true;
+void print(const char* charector, const int* frequenceChar, int* n) {
+	for (int i = 0; i < *n; ++i) {
+		std::cout << *(charector + i) << '\t' << *(frequenceChar + i) << std::endl;
+	}
 }
 
-std::string Charector(int* tanSuat, int& n, std::string s) {
-    std::string char_in_s = "";
+int main() {
+	char s[100];
+	int frequenceChar[100];
+	char charector[100];
+	int n = 0;
 
-    for (int i = 0; s[i] != '\0'; ++i) {
-        if (checkInChar(s[i], char_in_s)) {
-            char_in_s += s[i];
-            *(tanSuat + n) = 1;
-            ++n;
-        }
-        else {
-            *(tanSuat + viTri(char_in_s, s[i])) += 1;
-        }
-        
-    }
+	std::cin.getline(s, 100);
 
-    return char_in_s;
-}
+	frequenceOfStr(s, frequenceChar, charector, &n);
+	print(charector, frequenceChar, &n);
 
-void bai17() {
-    std::string s = "aaabbbcccc13224234213";
-    int tanSuat[100];
-    int n = 0;
-
-    std::string s1 = Charector(tanSuat, n, s);
-
-    for (int i = 0; i < n; ++i) {
-        std::cout << s1[i] << '\t' << tanSuat[i] << std::endl;
-    }
+	return 0;
 }

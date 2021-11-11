@@ -1,7 +1,18 @@
 #include<iostream>
 
-double my_sqr(double x, long n);
+double my_sqr(double x, long n) {
+    if (n == 0) {
+        return 1;
+    }
 
+    if (n > 0) {
+        return x * my_sqr(x, n - 1);
+    }
+    else if (n < 0) {
+        return 1 / x * my_sqr(x, n + 1);
+    }
+    return 0;
+}
 void bai1() {
     double x;
     long n;
@@ -14,15 +25,3 @@ void bai1() {
 }
 
 
-double my_sqr(double x, long n) {
-    if (n == 0) {
-        return 1;
-    }
-
-    if (n > 0) {
-        return x * my_sqr(x, n - 1);
-    }
-    else if (n < 0) {
-        return 1 / x * my_sqr(x, n + 1);
-    }
-}

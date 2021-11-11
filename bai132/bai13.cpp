@@ -9,7 +9,7 @@ void addInArray(int* arr, int n) {
     }    
 }
 
-void bai11() {
+void bai13() {
     int n = 10;
     int* arr;
     arr = new int[n];
